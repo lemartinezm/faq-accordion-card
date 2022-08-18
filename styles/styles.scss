@@ -1,0 +1,105 @@
+// Colors
+$very_dark_desat_blue: hsl(238, 29%, 16%);
+$soft_red: hsl(14, 88%, 65%);
+// Text
+$very_dark_grayish_blue: hsl(237, 12%, 33%);
+$dark_grayish_blue: hsl(240, 6%, 50%);
+// Dividers
+$light_grayish_blue: hsl(240, 5%, 91%);
+// Font
+$font: 'Kumbh Sans', sans-serif;
+
+html {
+  font-size: 12px;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  font-family: $font;
+  background: rgb(175, 103, 233);
+  background: linear-gradient(180deg, rgba(175, 103, 233, 1) 0%, rgba(101, 101, 231, 1) 100%);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  margin: 0 24px;
+  background-color: white;
+  border-radius: 16px;
+  padding: 24px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  picture {
+    display: none;
+
+    img {
+      width: 200px;
+    }
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .accordion {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    label {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      margin-bottom: 16px;
+
+      h2 {
+        font-size: 14px;
+        font-weight: 400;
+      }
+
+      img {
+        width: 10px;
+        height: 7px;
+      }
+    }
+
+    p {
+      max-height: 0;
+      margin-bottom: 0;
+      transition: max-height 0.5s linear;
+    }
+
+
+    hr {
+      margin: 0;
+    }
+  }
+
+}
+
+input:checked {
+  + label {
+    font-weight: 700;
+
+    img {
+      transform: rotate(180deg);
+    }
+  }
+  ~ p {
+    max-height: 80px;
+    margin-bottom: 16px;
+  }
+}
