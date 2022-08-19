@@ -62,6 +62,7 @@ main picture img {
           transform: translate(0, -130px);
 }
 main h1 {
+  color: hsl(238deg, 29%, 16%);
   margin-top: 48px;
   text-align: center;
 }
@@ -89,11 +90,10 @@ main .accordion label {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  color: hsl(237deg, 12%, 33%);
   cursor: pointer;
   margin-bottom: 16px;
-}
-main .accordion label h2 {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
 }
 main .accordion label img {
@@ -105,13 +105,17 @@ main .accordion label img {
   transition: transform 0.5s linear, -webkit-transform 0.5s linear;
 }
 main .accordion p {
+  color: hsl(240deg, 6%, 50%);
   max-height: 0;
   margin-bottom: 0;
+  padding-right: 16px;
   -webkit-transition: max-height 0.5s linear;
   transition: max-height 0.5s linear;
 }
 main .accordion hr {
   margin: 0;
+  border: none;
+  border-top: 1px solid hsl(240deg, 5%, 91%);
 }
 
 input:checked + label {

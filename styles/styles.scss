@@ -60,6 +60,7 @@ main {
   }
 
   h1 {
+    color: $very_dark_desat_blue;
     margin-top: 48px;
     text-align: center;
   }
@@ -74,13 +75,12 @@ main {
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
+      color: $very_dark_grayish_blue;
       cursor: pointer;
       margin-bottom: 16px;
 
-      h2 {
-        font-size: 14px;
-        font-weight: 400;
-      }
+      font-size: 13px;
+      font-weight: 400;
 
       img {
         width: 10px;
@@ -90,28 +90,33 @@ main {
     }
 
     p {
+      color: $dark_grayish_blue;
       max-height: 0;
       margin-bottom: 0;
+      padding-right: 16px;
       transition: max-height 0.5s linear;
     }
 
 
     hr {
       margin: 0;
+      border: none;
+      border-top: 1px solid $light_grayish_blue;
     }
   }
 
 }
 
 input:checked {
-  + label {
+  +label {
     font-weight: 700;
 
     img {
       transform: rotate(180deg);
     }
   }
-  ~ p {
+
+  ~p {
     max-height: 80px;
     margin-bottom: 16px;
   }
