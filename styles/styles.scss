@@ -2,8 +2,8 @@
 $very_dark_desat_blue: hsl(238, 29%, 16%);
 $soft_red: hsl(14, 88%, 65%);
 // Text
-$very_dark_grayish_blue: hsl(237, 12%, 33%);
-$dark_grayish_blue: hsl(240, 6%, 50%);
+$very_dark_grayish_blue: #4a4b5e;
+$dark_grayish_blue: #787887;
 // Dividers
 $light_grayish_blue: hsl(240, 5%, 91%);
 // Font
@@ -39,7 +39,7 @@ main {
   margin-bottom: 64px;
 
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   gap: 16px;
 
   background-image: url('../images/bg-pattern-mobile.svg');
@@ -47,7 +47,77 @@ main {
   background-position: top center;
   background-size: 250px;
 
-  picture {
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+
+    h1 {
+      font-size: 29px;
+      color: $very_dark_desat_blue;
+      margin-top: 48px;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .accordion {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+
+      label {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        color: $very_dark_grayish_blue;
+        cursor: pointer;
+        margin-bottom: 16px;
+
+        font-size: 13px;
+        font-weight: 400;
+
+        img {
+          width: 10px;
+          height: 7px;
+          transition: transform 0.5s linear;
+        }
+      }
+
+      p {
+        color: $dark_grayish_blue;
+        max-height: 0;
+        margin-bottom: 0;
+        padding-right: 16px;
+        transition: max-height 0.5s linear;
+      }
+
+
+      hr {
+        margin: 0;
+        border: none;
+        border-top: 1px solid $light_grayish_blue;
+      }
+
+      input:checked {
+        +label {
+          font-weight: 700;
+
+          img {
+            transform: rotate(180deg);
+          }
+        }
+
+        ~p {
+          max-height: 80px;
+          margin-bottom: 16px;
+        }
+      }
+    }
+  }
+
+  picture:nth-child(2) {
     display: flex;
     justify-content: center;
     height: 50px;
@@ -58,66 +128,82 @@ main {
       transform: translate(0, -130px);
     }
   }
+}
 
-  h1 {
-    color: $very_dark_desat_blue;
-    margin-top: 48px;
-    text-align: center;
+@media (min-width: 768px) {
+  main {
+    max-width: 500px;
   }
+}
 
-  .accordion {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+@media (min-width: 1024px) {
+  main {
+    box-sizing: border-box;
+    max-width: 920px;
+    margin: 32px 0;
+    padding: 64px 96px 64px 0;
 
-    label {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      color: $very_dark_grayish_blue;
-      cursor: pointer;
-      margin-bottom: 16px;
+    flex-direction: row-reverse;
+    align-items: center;
 
-      font-size: 13px;
-      font-weight: 400;
+    background-image: url('../images/bg-pattern-desktop.svg');
+    background-size: 966px 945px;
+    background-position: -558px -300px;
+    gap: 96px;
+    position: relative;
 
-      img {
-        width: 10px;
-        height: 7px;
-        transition: transform 0.5s linear;
+    section {
+      h1 {
+        margin: 0 0 16px 0;
+        text-align: left;
+      }
+
+      .accordion {
+        label {
+          transition: color 0.1s linear;
+        }
+
+        label:hover {
+          color: $soft_red;
+        }
+
+        ~picture>img {
+          transition: transform 0.3s linear;
+        }
+      }
+
+      .accordion:hover {
+        ~picture>img {
+          transform: translate(-120px, 50px);
+        }
+      }
+
+      picture {
+        position: absolute;
+        left: 0;
+        z-index: 2;
+        width: 191px;
+        height: 184px;
+
+        img {
+          transform: translate(-92px, 50px);
+        }
       }
     }
 
-    p {
-      color: $dark_grayish_blue;
-      max-height: 0;
-      margin-bottom: 0;
-      padding-right: 16px;
-      transition: max-height 0.5s linear;
+    picture:nth-child(2) {
+      display: flex;
+      align-content: center;
+      width: 110%;
+      height: auto;
+      overflow: hidden;
+
+      img {
+        transform: translate(-32px);
+        width: 472px;
+        height: 359px;
+      }
     }
 
-
-    hr {
-      margin: 0;
-      border: none;
-      border-top: 1px solid $light_grayish_blue;
-    }
-  }
-
-}
-
-input:checked {
-  +label {
-    font-weight: 700;
-
-    img {
-      transform: rotate(180deg);
-    }
-  }
-
-  ~p {
-    max-height: 80px;
-    margin-bottom: 16px;
   }
 }

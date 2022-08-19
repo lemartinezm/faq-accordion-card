@@ -37,36 +37,36 @@ main {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
   gap: 16px;
   background-image: url("../images/bg-pattern-mobile.svg");
   background-repeat: no-repeat;
   background-position: top center;
   background-size: 250px;
 }
-main picture {
+main section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 50px;
+  gap: 16px;
 }
-main picture img {
-  width: 237px;
-  height: 180px;
-  -webkit-transform: translate(0, -130px);
-          transform: translate(0, -130px);
-}
-main h1 {
+main section h1 {
+  font-size: 29px;
   color: hsl(238deg, 29%, 16%);
   margin-top: 48px;
+  margin-bottom: 16px;
   text-align: center;
 }
-main .accordion {
+main section .accordion {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -76,7 +76,7 @@ main .accordion {
           flex-direction: column;
   overflow: hidden;
 }
-main .accordion label {
+main section .accordion label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -90,13 +90,13 @@ main .accordion label {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: hsl(237deg, 12%, 33%);
+  color: #4a4b5e;
   cursor: pointer;
   margin-bottom: 16px;
   font-size: 13px;
   font-weight: 400;
 }
-main .accordion label img {
+main section .accordion label img {
   width: 10px;
   height: 7px;
   -webkit-transition: -webkit-transform 0.5s linear;
@@ -104,28 +104,117 @@ main .accordion label img {
   transition: transform 0.5s linear;
   transition: transform 0.5s linear, -webkit-transform 0.5s linear;
 }
-main .accordion p {
-  color: hsl(240deg, 6%, 50%);
+main section .accordion p {
+  color: #787887;
   max-height: 0;
   margin-bottom: 0;
   padding-right: 16px;
   -webkit-transition: max-height 0.5s linear;
   transition: max-height 0.5s linear;
 }
-main .accordion hr {
+main section .accordion hr {
   margin: 0;
   border: none;
   border-top: 1px solid hsl(240deg, 5%, 91%);
 }
-
-input:checked + label {
+main section .accordion input:checked + label {
   font-weight: 700;
 }
-input:checked + label img {
+main section .accordion input:checked + label img {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
-input:checked ~ p {
+main section .accordion input:checked ~ p {
   max-height: 80px;
   margin-bottom: 16px;
+}
+main picture:nth-child(2) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 50px;
+}
+main picture:nth-child(2) img {
+  width: 237px;
+  height: 180px;
+  -webkit-transform: translate(0, -130px);
+          transform: translate(0, -130px);
+}
+
+@media (min-width: 768px) {
+  main {
+    max-width: 500px;
+  }
+}
+@media (min-width: 1024px) {
+  main {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    max-width: 920px;
+    margin: 32px 0;
+    padding: 64px 96px 64px 0;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background-image: url("../images/bg-pattern-desktop.svg");
+    background-size: 966px 945px;
+    background-position: -558px -300px;
+    gap: 96px;
+    position: relative;
+  }
+  main section h1 {
+    margin: 0 0 16px 0;
+    text-align: left;
+  }
+  main section .accordion label {
+    -webkit-transition: color 0.1s linear;
+    transition: color 0.1s linear;
+  }
+  main section .accordion label:hover {
+    color: hsl(14deg, 88%, 65%);
+  }
+  main section .accordion ~ picture > img {
+    -webkit-transition: -webkit-transform 0.3s linear;
+    transition: -webkit-transform 0.3s linear;
+    transition: transform 0.3s linear;
+    transition: transform 0.3s linear, -webkit-transform 0.3s linear;
+  }
+  main section .accordion:hover ~ picture > img {
+    -webkit-transform: translate(-120px, 50px);
+            transform: translate(-120px, 50px);
+  }
+  main section picture {
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    width: 191px;
+    height: 184px;
+  }
+  main section picture img {
+    -webkit-transform: translate(-92px, 50px);
+            transform: translate(-92px, 50px);
+  }
+  main picture:nth-child(2) {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    width: 110%;
+    height: auto;
+    overflow: hidden;
+  }
+  main picture:nth-child(2) img {
+    -webkit-transform: translate(-32px);
+            transform: translate(-32px);
+    width: 472px;
+    height: 359px;
+  }
 }/*# sourceMappingURL=styles.css.map */
